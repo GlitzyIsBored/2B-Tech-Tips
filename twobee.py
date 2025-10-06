@@ -9,13 +9,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 endpoint = "https://models.github.ai/inference"
-<<<<<<< HEAD
 model = "openai/gpt-4.1-mini"
 #deepseek/DeepSeek-V3-0324
 #openai/gpt-4.1-mini
-=======
-model = "deepseek/DeepSeek-R1-0528" #" deepseek/DeepSeek-V3-0324
->>>>>>> 143630af493972767f95201891c560ab8c2d07e3
 token = os.getenv('AI_TOKEN')
 discord_token = os.getenv('DISCORD_TOKEN')
 
@@ -58,15 +54,11 @@ async def on_message(message, *, erm=""):
             max_tokens=1000,
             model=model
         )
-<<<<<<< HEAD
+
         if message.reference and message.reference.message_id:
             replied_to = await message.channel.fetch_message(message.reference.message_id)
         if replied_to.author == client.user:
             await message.reply(response.choices[0].message.content, mention_author=True)
-=======
-        await message.reply(response.choices[0].message.content, mention_author=True)
+            # await message.channel.send(response.choices[0].message.content)
         
-client.run(discord_token)
->>>>>>> 143630af493972767f95201891c560ab8c2d07e3
-
 client.run(discord_token)
